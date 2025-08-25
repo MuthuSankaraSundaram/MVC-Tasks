@@ -1,0 +1,23 @@
+- MVC Architecture
+- ASP.NET MVC Request Pipeline
+- Controller and Action Methods
+- ActionResult Types
+- Parameter Binding
+- TempData, ViewBag, ViewData
+- Dependency Injection in Controllers
+- Controller Attributes
+- Razor Syntax
+- Layouts 
+- Strongly Typed Views
+- Model Binding
+- Data Annotations for Validation
+- Server-side Validation
+- Forms 
+- Anti-Forgery Tokens
+- Conventional Routing
+- Attribute Routing ([Route])
+- Areas
+- Session State
+- ViewData / ViewBag
+- JavaScript Integration
+- AJAX Forms (Ajax.BeginForm)
