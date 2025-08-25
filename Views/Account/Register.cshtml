@@ -1,0 +1,140 @@
+@model TaskManagementSystem.Models.RegisterViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Register";
+}
+
+<div class="register-container">
+    <h2 style="color: #0056b3;">Employee Registration</h2>
+
+    <!-- Display general errors -->
+    @if (ViewData.ModelState.ErrorCount > 0)
+    {
+        <div id="errorMessage" class="error-message">
+            @Html.ValidationSummary(false)
+        </div>
+    }
+
+    <form asp-controller="Account" asp-action="Register" method="post" class="register-form">
+        <div class="form-group">
+            <label>Full Name</label>
+            <input asp-for="FullName" />
+            <span asp-validation-for="FullName" class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Phone</label>
+            <input asp-for="Phone" />
+            <span asp-validation-for="Phone" class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Username</label>
+            <input asp-for="Username" />
+            <span asp-validation-for="Username" class="validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input asp-for="Password" type="password" />
+            <span asp-validation-for="Password" class="validation-error"></span>
+        </div>
+
+        <button type="submit" class="btn-submit">Register</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        window.onload = function () {
+            var errorDiv = document.getElementById("errorMessage");
+            if (errorDiv) {
+                setTimeout(function () {
+                    errorDiv.style.display = "none";
+                }, 3000);
+            }
+        };
+    </script>
+}
+<style>
+    /* Container */
+    .register-container {
+        max-width: 450px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Heading */
+    .register-container h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+    }
+
+    /* Form */
+    .register-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Form Groups */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    /* Labels */
+    .form-group label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+        color: #555;
+    }
+
+    /* Inputs */
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    /* Validation Error */
+    .validation-error {
+        color: red;
+        font-size: 13px;
+        margin-top: 3px;
+    }
+
+    /* Submit Button */
+    .btn-submit {
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+        background-color: #0056b3;
+    }
+
+    /* Error message */
+    .error-message {
+        color: red;
+        background-color: #ffe5e5;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        text-align: center;
+    }
+</style>

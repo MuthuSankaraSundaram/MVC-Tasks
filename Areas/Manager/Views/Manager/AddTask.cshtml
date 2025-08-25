@@ -1,0 +1,128 @@
+@model TaskManagementSystem.Models.EmployeeTask
+@{
+    ViewBag.Title = "Add Task";
+}
+
+<div class="addtask-container">
+    <h2>Add Task</h2>
+
+    <form asp-action="AddTask" asp-controller="Manager" asp-area="Manager" method="post">
+        <!-- Title -->
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="Title" value="@Model.Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+            <label>Description</label>
+            <textarea name="Description" class="form-control">@Model.Description</textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <!-- Assign To (Radio Buttons) -->
+        <div class="form-group">
+            <label>Assign To (Employee)</label>
+            <div class="radio-group">
+                @foreach (var emp in (IEnumerable<SelectListItem>)ViewBag.Employees)
+                {
+                    <label class="radio-item">
+                        <input type="radio" 
+                               name="AssignedTo" 
+                               value="@emp.Value" 
+                               @(Model.AssignedTo?.ToString() == emp.Value ? "checked" : "") />
+                        @emp.Text
+                    </label>
+                }
+            </div>
+            <span asp-validation-for="AssignedTo" class="text-danger"></span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn-primary">Assign Task</button>
+    </form>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</div>
+
+<style>
+    /* Container */
+    .addtask-container {
+        max-width: 500px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+    }
+
+    .addtask-container h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+    }
+
+    /* Form Groups */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    /* Radio Buttons - Horizontal Layout */
+    .radio-group {
+        display: flex;
+        flex-wrap: wrap; /* wrap to next line if too many */
+        gap: 20px; /* space between options */
+    }
+
+    .radio-item {
+        display: flex;
+        align-items: center;
+        gap: 5px; /* space between circle and text */
+        font-size: 14px;
+    }
+
+    /* Button */
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    /* Validation */
+    .text-danger {
+        color: red;
+        font-size: 13px;
+        margin-top: 3px;
+    }
+</style>
