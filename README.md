@@ -20,4 +20,4 @@
 - Session State
 - ViewData / ViewBag
 - JavaScript Integration
-- AJAX Forms (Ajax.BeginForm)
+- AJAX Forms

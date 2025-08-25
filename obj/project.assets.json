@@ -2753,11 +2753,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\muthu.kuthalingam\\Documents\\MVCConcepts\\TaskManagementSystem\\TaskManagementSystem.csproj",
+      "projectUniqueName": "C:\\Users\\muthu.kuthalingam\\Desktop\\MVC Tasks\\MVC-Tasks\\TaskManagementSystem.csproj",
       "projectName": "TaskManagementSystem",
-      "projectPath": "C:\\Users\\muthu.kuthalingam\\Documents\\MVCConcepts\\TaskManagementSystem\\TaskManagementSystem.csproj",
+      "projectPath": "C:\\Users\\muthu.kuthalingam\\Desktop\\MVC Tasks\\MVC-Tasks\\TaskManagementSystem.csproj",
       "packagesPath": "C:\\Users\\muthu.kuthalingam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\muthu.kuthalingam\\Documents\\MVCConcepts\\TaskManagementSystem\\obj\\",
+      "outputPath": "C:\\Users\\muthu.kuthalingam\\Desktop\\MVC Tasks\\MVC-Tasks\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\muthu.kuthalingam\\AppData\\Roaming\\NuGet\\NuGet.Config"
