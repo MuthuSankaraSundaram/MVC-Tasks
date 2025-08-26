@@ -15,15 +15,15 @@ namespace TaskManagementSystem.Controllers
         }
 
         // Temporary: For hashing Manager password (remove after use)
-        [HttpGet]
-        public IActionResult GenerateHash()
-        {
-            var passwordHasher = new PasswordHasher<object>();
-            string managerPassword = "Manager@123";
-            string hashedPassword = passwordHasher.HashPassword(null, managerPassword);
+        // [HttpGet]
+        // public IActionResult GenerateHash()
+        // {
+        //     var passwordHasher = new PasswordHasher<object>();
+        //     string managerPassword = "Manager@123";
+        //     string hashedPassword = passwordHasher.HashPassword(null, managerPassword);
 
-            return Content($"Hashed Password for Manager: {hashedPassword}");
-        }
+        //     return Content($"Hashed Password for Manager: {hashedPassword}");
+        // }
 
         // GET: /Account/Register
         [HttpGet]
