@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>@ViewBag.Title - Task Management System</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <style>
+        /* Navbar container */
+        nav {
+            background-color: #0077b6;
+            /* nice blue */
+            padding: 10px 20px;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Flex layout for inner items */
+        .common {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        /* Welcome text */
+        .common .item:first-child {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Links/buttons */
+        .common .item a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .common .item a.btn-success {
+            background-color: #28a745;
+        }
+
+        .common .item a.btn-success:hover {
+            background-color: #218838;
+        }
+
+        .common .item a.btn-danger {
+            background-color: #dc3545;
+        }
+
+        .common .item a.btn-danger:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="common">
+                <div class="item">
+                    @{
+                        var username = Context.Session.GetString("Username") ?? "Guest";
+                    }
+                    Welcome, @username
+                </div>
+
+                <div class="item">
+                    <a asp-area="Manager" asp-controller="Manager" asp-action="AddTask" class="btn btn-success">Add
+                        Task</a>
+                    <a asp-area="" asp-controller="Account" asp-action="Logout" class="btn btn-danger">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-3">
+        @RenderBody()
+    </div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>
